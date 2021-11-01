@@ -6,7 +6,7 @@ import ToDo from './ToDo';
 const ToDoList = () => {
   const todoList = useSelector((state) => state.todos);
   return (
-    <Box sx={{ width: '100%', marginTop: '30px' }}>
+    <Box sx={{ width: '100%' }}>
       {todoList.map((item) => (
         <ToDo key={item.id} todoList={item} />
       ))}

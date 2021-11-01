@@ -13,6 +13,8 @@ const ContainerToDo = () => {
         marginTop: '100px',
         border: '1px solid black',
         borderRadius: '10px',
+        paddingTop: '15px',
+        paddingBottom: '15px',
       }}
     >
       <Box
@@ -20,6 +22,7 @@ const ContainerToDo = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          marginTop: '10px',
         }}
       >
         <UserInput />

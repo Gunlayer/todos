@@ -4,9 +4,7 @@ export const inputSlice = createSlice({
   name: 'userInput',
   initialState: '',
   reducers: {
-    saveUserInput: (state, action) => {
-      return (state = action.payload);
-    },
+    saveUserInput: (state, action) => action.payload,
     clearUserInput: (state) => (state = ''),
   },
 });

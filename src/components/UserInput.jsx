@@ -14,6 +14,7 @@ const UserInput = () => {
       sx={{ width: '100%' }}
       onChange={(event) => dispatch(saveUserInput(event.target.value))}
       value={userinput}
+      placeholder="your todo"
     />
   );
 };
