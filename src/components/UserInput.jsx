@@ -1,4 +1,4 @@
-import { Input } from '@mui/material';
+import { TextField } from '@mui/material';
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,12 +9,15 @@ const UserInput = () => {
   const userinput = useSelector((state) => state.userInput);
 
   return (
-    <Input
+    <TextField
+      error={false}
+      variant="standard"
       type="text"
+      label="todo"
+      helperText="Enter your task"
       sx={{ width: '100%' }}
       onChange={(event) => dispatch(saveUserInput(event.target.value))}
       value={userinput}
-      placeholder="your todo"
     />
   );
 };

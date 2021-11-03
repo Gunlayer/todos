@@ -23,6 +23,7 @@ const ContainerToDo = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginTop: '10px',
+          marginBottom: '15px',
         }}
       >
         <UserInput />
