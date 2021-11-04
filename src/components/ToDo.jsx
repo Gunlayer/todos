@@ -1,10 +1,12 @@
 import { Checkbox, Divider, FormControlLabel, FormGroup } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import React from 'react';
 import DeleteButton from './DeleteButton';
+import { useDispatch } from 'react-redux';
+import { toggle } from '../redux/todoSlice';
 
-const ToDo = ({ todoList }) => {
-  const [checked, setChecked] = useState(false);
+const ToDo = ({ todoItem }) => {
+  const dispatch = useDispatch();
 
   return (
     <Box>
@@ -18,20 +20,17 @@ const ToDo = ({ todoList }) => {
         <FormGroup>
           <FormControlLabel
             sx={
-              !checked
+              !todoItem.complete
                 ? { textDecoration: 'none' }
                 : { textDecoration: 'line-through' }
             }
             control={
-              <Checkbox
-                checked={checked}
-                onChange={() => setChecked(!checked)}
-              />
+              <Checkbox onChange={() => dispatch(toggle(todoItem.id))} />
             }
-            label={todoList.text}
+            label={todoItem.text}
           />
         </FormGroup>
-        <DeleteButton id={todoList.id} />
+        <DeleteButton id={todoItem.id} />
       </Box>
       <Divider />
     </Box>

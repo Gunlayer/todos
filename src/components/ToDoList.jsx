@@ -5,10 +5,11 @@ import ToDo from './ToDo';
 
 const ToDoList = () => {
   const todoList = useSelector((state) => state.todos);
+
   return (
     <Box sx={{ width: '100%' }}>
       {todoList.map((item) => (
-        <ToDo key={item.id} todoList={item} />
+        <ToDo key={item.id} todoItem={item} />
       ))}
     </Box>
   );
