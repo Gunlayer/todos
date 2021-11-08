@@ -1,5 +1,5 @@
 import { IconButton } from '@mui/material';
-import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react';
 import { delteItem } from '../redux/todoSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ const DeleteButton = ({ id }) => {
   return (
     <div>
       <IconButton color="primary" onClick={deleteItemHadle}>
-        <HighlightOffOutlinedIcon />
+        <DeleteIcon />
       </IconButton>
     </div>
   );

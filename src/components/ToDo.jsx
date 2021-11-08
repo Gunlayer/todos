@@ -3,10 +3,17 @@ import { Box } from '@mui/system';
 import React from 'react';
 import DeleteButton from './DeleteButton';
 import { useDispatch } from 'react-redux';
-import { toggle } from '../redux/todoSlice';
+import { sort, toggle } from '../redux/todoSlice';
+import EditButton from './EditButton';
+import EditArea from './EditArea';
 
 const ToDo = ({ todoItem }) => {
   const dispatch = useDispatch();
+
+  const checkBoxClickHandle = () => {
+    dispatch(toggle(todoItem.id));
+    dispatch(sort(todoItem.id));
+  };
 
   return (
     <Box>
@@ -21,16 +28,26 @@ const ToDo = ({ todoItem }) => {
           <FormControlLabel
             sx={
               !todoItem.complete
-                ? { textDecoration: 'none' }
-                : { textDecoration: 'line-through' }
+                ? {
+                    textDecoration: 'none',
+                    '& .MuiFormControlLabel-label': { wordBreak: 'break-word' },
+                  }
+                : {
+                    textDecoration: 'line-through',
+                    '& .MuiFormControlLabel-label': { wordBreak: 'break-word' },
+                  }
             }
-            control={
-              <Checkbox onChange={() => dispatch(toggle(todoItem.id))} />
-            }
+            control={<Checkbox onChange={checkBoxClickHandle} />}
             label={todoItem.text}
           />
         </FormGroup>
-        <DeleteButton id={todoItem.id} />
+
+        <Box sx={{ display: 'flex' }}>
+          <EditButton id={todoItem.id} />
+          <DeleteButton id={todoItem.id} />
+        </Box>
+
+        <EditArea />
       </Box>
       <Divider />
     </Box>
